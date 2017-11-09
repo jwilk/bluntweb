@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+# Copyright © 2017 Jakub Wilk <jwilk@jwilk.net>
+# SPDX-License-Identifier: MIT
+
+import argparse
+import configparser
+import os
+import shutil
+import subprocess
+import urllib.parse
+
+def open_in_browser(url):
+    if shutil.which('sensible-browser'):
+        cmd = 'sensible-browser'
+    else:
+        cmd = 'xdg-open'
+    subprocess.call([cmd, url])
+
+def main():
+    cp = configparser.ConfigParser(interpolation=None, default_section='')
+    this = os.path.realpath(__file__)
+    here = os.path.dirname(this)
+    path = os.path.join(here, 'config')
+    cp.read(path, encoding='ASCII')
+    conf = cp['bluntweb']
+    ap = argparse.ArgumentParser()
+    sites = sorted(conf)
+    ap.add_argument('site', metavar='SITE', choices=sites, help=' | '.join(sites))
+    ap.add_argument('args', metavar='ARG', nargs='+')
+    options = ap.parse_args()
+    url_template = conf[options.site]
+    args = ' '.join(options.args)
+    url_args = urllib.parse.quote(args, safe='')
+    url = url_template.format(args=url_args)
+    open_in_browser(url)
+
+if __name__ == '__main__':
+    main()
+
+# vim:ts=4 sts=4 sw=4 et
