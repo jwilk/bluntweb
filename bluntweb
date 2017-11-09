@@ -10,6 +10,8 @@ import shutil
 import subprocess
 import urllib.parse
 
+lambda: (yield from 0)  # Python >= 3.3 is required
+
 def open_in_browser(url):
     if shutil.which('sensible-browser'):
         cmd = 'sensible-browser'
