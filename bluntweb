@@ -13,10 +13,9 @@ import urllib.parse
 lambda: (yield from 0)  # Python >= 3.3 is required
 
 def open_in_browser(url):
-    if shutil.which('sensible-browser'):
-        cmd = 'sensible-browser'
-    else:
-        cmd = 'xdg-open'
+    for cmd in 'sensible-browser', 'xdg-open':
+        if shutil.which(cmd):
+            break
     subprocess.call([cmd, url])
 
 def main():
