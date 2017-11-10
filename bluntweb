@@ -27,13 +27,20 @@ def main():
     conf = cp['bluntweb']
     ap = argparse.ArgumentParser()
     sites = sorted(conf)
+    ap.add_argument('-l', '--lang', default='en')
     ap.add_argument('site', metavar='SITE', choices=sites, help=' | '.join(sites))
     ap.add_argument('args', metavar='ARG', nargs='+')
     options = ap.parse_args()
     url_template = conf[options.site]
-    args = ' '.join(options.args)
-    url_args = urllib.parse.quote(args, safe='')
-    url = url_template.format(args=url_args)
+    variables = dict(
+        args=' '.join(options.args),
+        lang=options.lang
+    )
+    variables = dict(
+        (k, urllib.parse.quote(v))
+        for k, v in variables.items()
+    )
+    url = url_template.format(**variables)
     open_in_browser(url)
 
 if __name__ == '__main__':
