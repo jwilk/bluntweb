@@ -1,0 +1,23 @@
+.. code:: console
+
+   $ bluntweb --help
+   usage: bluntweb [-h] [-l LANG] SITE ARG [ARG ...]
+
+   positional arguments:
+     SITE                  google | wikipedia | wiktionary
+     ARG
+
+   optional arguments:
+     -h, --help            show this help message and exit
+     -l LANG, --lang LANG
+
+   $ bluntweb google blunt web
+   <opens https://encrypted.google.com/search?hl=en&q=blunt%20web&ie=utf-8&oe=utf-8&gbv=1>
+
+   $ bluntweb wikipedia web
+   <opens https://en.wikipedia.org/wiki/web>
+
+   $ bluntweb wiktionary blunt
+   <opens https://en.wiktionary.org/wiki/blunt>
+
+.. vim:ft=rst ts=3 sts=3 sw=3 et
