@@ -1,3 +1,6 @@
+Overview
+========
+
 .. code:: console
 
    $ bluntweb --help
@@ -19,5 +22,18 @@
 
    $ bluntweb wiktionary blunt
    <opens https://en.wiktionary.org/wiki/blunt>
+
+Prerequisites
+=============
+
+* Python ≥ 3.3
+
+* sensible-browser_ or xdg-utils_
+
+.. _sensible-browser:
+   https://manpages.debian.org/unstable/sensible-utils/sensible-browser.1
+
+.. _xdg-utils:
+   https://www.freedesktop.org/wiki/Software/xdg-utils/
 
 .. vim:ft=rst ts=3 sts=3 sw=3 et
