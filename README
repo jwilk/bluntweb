@@ -7,7 +7,7 @@ Overview
    usage: bluntweb [-h] [-l LANG] SITE ARG [ARG ...]
 
    positional arguments:
-     SITE                  google | wikipedia | wiktionary
+     SITE                  google | wikipedia | wikiquote | wiktionary
      ARG
 
    optional arguments:
@@ -16,6 +16,9 @@ Overview
 
    $ bluntweb google blunt web
    <opens https://encrypted.google.com/search?hl=en&q=blunt%20web&ie=utf-8&oe=utf-8&gbv=1>
+
+   $ bluntweb wikiquote James Blunt
+   <opens https://en.wikiquote.org/wiki/James%20Blunt>
 
    $ bluntweb wikipedia web
    <opens https://en.wikipedia.org/wiki/web>
