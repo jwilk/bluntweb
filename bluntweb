@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: MIT
 
 import argparse
+import collections
 import configparser
 import os
 import shutil
@@ -24,14 +25,32 @@ def main():
     here = os.path.dirname(this)
     path = os.path.join(here, 'config')
     cp.read(path, encoding='ASCII')
-    conf = cp['bluntweb']
+    sites = cp['sites']
+    aliases = cp['aliases']
+    rev_aliases = collections.defaultdict(set)
+    for alias in aliases:
+        site = aliases[alias]
+        rev_aliases[site].add(alias)
     ap = argparse.ArgumentParser()
-    sites = sorted(conf)
+    all_sites = set(sites) | set(aliases)
+    sites_help = []
+    for site in sorted(sites):
+        site_help = site
+        if site in rev_aliases:
+            site_aliases = sorted(rev_aliases[site])
+            site_help += ' ({0})'.format(', '.join(site_aliases))
+        sites_help += [site_help]
+    sites_help = ' | '.join(sites_help)
     ap.add_argument('-l', '--lang', default='en')
-    ap.add_argument('site', metavar='SITE', choices=sites, help=' | '.join(sites))
+    ap.add_argument('site', metavar='SITE', choices=all_sites, help=sites_help)
     ap.add_argument('args', metavar='ARG', nargs='+')
     options = ap.parse_args()
-    url_template = conf[options.site]
+    site = options.site
+    try:
+        site = aliases[options.site]
+    except KeyError:
+        pass
+    url_template = sites[site]
     variables = dict(
         args=' '.join(options.args),
         lang=options.lang

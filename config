@@ -1,7 +1,13 @@
-[bluntweb]
+[sites]
 google = https://encrypted.google.com/search?hl={lang}&q={args}&ie=utf-8&oe=utf-8&gbv=1
 wikipedia = https://{lang}.wikipedia.org/wiki/{args}
 wikiquote = https://{lang}.wikiquote.org/wiki/{args}
 wiktionary = https://{lang}.wiktionary.org/wiki/{args}
+
+[aliases]
+g = google
+wd = wiktionary
+wp = wikipedia
+wq = wikiquote
 
 # vim:ft=dosini
