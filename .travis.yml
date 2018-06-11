@@ -11,7 +11,7 @@ before_install:
 - if [[ $TRAVIS_PYTHON_VERSION = 3.3 ]]; then pyflakes='pyflakes<2'; fi
 install:
 - pip install pydiatra $pyflakes
-- pip install docutils pygments
+- pip install restructuredtext-lint pygments
 script:
 - python3 -m pydiatra bluntweb
 - python3 -m pyflakes bluntweb
@@ -22,6 +22,6 @@ script:
 - bluntweb wikiquote James Blunt
 - bluntweb wikipedia web
 - bluntweb wiktionary blunt
-- private/check-rst
+- restructuredtext-lint --encoding=UTF-8 README
 
 # vim:ts=2 sts=2 sw=2 et
