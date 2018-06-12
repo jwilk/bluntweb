@@ -16,7 +16,7 @@ Overview
      -l LANG, --lang LANG
 
    $ bluntweb google blunt web
-   <opens https://encrypted.google.com/search?hl=en&q=blunt%20web&ie=utf-8&oe=utf-8&gbv=1>
+   <opens https://www.google.com/search?hl=en&q=blunt%20web&ie=utf-8&oe=utf-8&gbv=1>
 
    $ bluntweb wikiquote James Blunt
    <opens https://en.wikiquote.org/wiki/James%20Blunt>
