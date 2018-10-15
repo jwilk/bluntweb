@@ -8,7 +8,6 @@ import collections
 import configparser
 import os
 import shutil
-import subprocess
 import urllib.parse
 
 lambda: (yield from 0)  # Python >= 3.3 is required
@@ -17,7 +16,11 @@ def open_in_browser(url):
     for cmd in 'sensible-browser', 'xdg-open':
         if shutil.which(cmd):
             break
-    subprocess.call([cmd, url])
+    try:
+        os.execvp(cmd, [cmd, url])
+    except FileNotFoundError as exc:
+        exc.filename = cmd
+        raise
 
 def main():
     cp = configparser.ConfigParser(interpolation=None, default_section='')
