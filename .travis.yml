@@ -10,8 +10,8 @@ before_install:
 - pyflakes=pyflakes
 - if [[ $TRAVIS_PYTHON_VERSION = 3.3 ]]; then pyflakes='pyflakes<2'; fi
 install:
-- pip install pydiatra $pyflakes
-- pip install restructuredtext-lint pygments
+- python3 -m pip install pydiatra $pyflakes
+- python3 -m pip install restructuredtext-lint pygments
 script:
 - python3 -m pydiatra bluntweb
 - python3 -m pyflakes bluntweb
