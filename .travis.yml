@@ -25,6 +25,7 @@ script:
 - bluntweb wikiquote James Blunt
 - bluntweb wikipedia web
 - bluntweb wiktionary blunt
+- bluntweb imdb blunt
 - restructuredtext-lint --encoding=UTF-8 README
 
 # vim:ts=2 sts=2 sw=2 et
