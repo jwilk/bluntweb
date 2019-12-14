@@ -27,6 +27,9 @@ Overview
    $ bluntweb wiktionary blunt
    <opens https://en.wiktionary.org/wiki/blunt>
 
+   $ bluntweb imdb Blunt
+   <opens https://www.imdb.com/find?q=Blunt>
+
 Prerequisites
 =============
 
