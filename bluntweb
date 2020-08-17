@@ -62,7 +62,7 @@ def main():
         (k, urllib.parse.quote(v))
         for k, v in variables.items()
     )
-    url = url_template.format(**variables)
+    url = url_template.format_map(variables)
     open_in_browser(url)
 
 if __name__ == '__main__':
