@@ -11,7 +11,7 @@ Overview
                            wiktionary (wd)
      ARG
 
-   optional arguments:
+   options:
      -h, --help            show this help message and exit
      -l LANG, --lang LANG
 

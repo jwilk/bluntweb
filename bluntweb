@@ -9,6 +9,7 @@ import configparser
 import os
 import shutil
 import urllib.parse
+import sys
 
 lambda: (yield from 0)  # Python >= 3.3 is required
 
@@ -35,6 +36,9 @@ def main():
         site = aliases[alias]
         rev_aliases[site].add(alias)
     ap = argparse.ArgumentParser()
+    if sys.version_info < (3, 10):
+        # https://bugs.python.org/issue9694
+        ap._optionals.title = 'options'
     all_sites = set(sites) | set(aliases)
     sites_help = []
     for site in sorted(sites):
