@@ -20,7 +20,8 @@ def open_in_browser(url):
     try:
         os.execvp(cmd, [cmd, url])
     except FileNotFoundError as exc:
-        exc.filename = cmd
+        if exc.filename is None:
+            exc.filename = cmd
         raise
 
 def main():
