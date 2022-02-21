@@ -64,10 +64,10 @@ def main():
         args=' '.join(options.args),
         lang=options.lang
     )
-    variables = dict(
-        (k, urllib.parse.quote(v))
+    variables = {
+        k: urllib.parse.quote(v)
         for k, v in variables.items()
-    )
+    }
     url = url_template.format_map(variables)
     open_in_browser(url)
 
