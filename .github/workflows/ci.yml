@@ -7,15 +7,8 @@ jobs:
     strategy:
       matrix:
         include:
-        - python-version: '3.3'
-          os: ubuntu-18.04
-          pyflakes: 'pyflakes<2'
-        - python-version: '3.4'
-          os: ubuntu-18.04
-        - python-version: '3.5'
-          os: ubuntu-18.04
         - python-version: '3.6'
-          os: ubuntu-20.04
+          os: ubuntu-18.04
         - python-version: '3.7'
           os: ubuntu-20.04
         - python-version: '3.8'
@@ -42,10 +35,8 @@ jobs:
         python3 -m pydiatra -v .
     - name: run pyflakes
       run: |
-        python3 -m pip install $pyflakes
+        python3 -m pip install pyflakes
         python3 -m pyflakes .
-      env:
-        pyflakes: ${{matrix.pyflakes || 'pyflakes'}}
     - name: check README syntax
       run: |
         python3 -m pip install restructuredtext-lint pygments

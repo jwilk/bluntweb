@@ -33,7 +33,7 @@ Overview
 Prerequisites
 =============
 
-* Python ≥ 3.3
+* Python ≥ 3.6
 
 * sensible-browser_ or xdg-utils_
 

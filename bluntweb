@@ -11,7 +11,7 @@ import shutil
 import urllib.parse
 import sys
 
-lambda: (yield from [])  # Python >= 3.3 is required
+0_0  # Python >= 3.6 is required
 
 def open_in_browser(url):
     for cmd in 'sensible-browser', 'xdg-open':
