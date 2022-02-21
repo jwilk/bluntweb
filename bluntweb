@@ -46,7 +46,8 @@ def main():
         site_help = site
         if site in rev_aliases:
             site_aliases = sorted(rev_aliases[site])
-            site_help += ' ({0})'.format(', '.join(site_aliases))
+            site_aliases = str.join(', ', site_aliases)
+            site_help += f' ({site_aliases})'
         sites_help += [site_help]
     sites_help = ' | '.join(sites_help)
     ap.add_argument('-l', '--lang', default='en')
