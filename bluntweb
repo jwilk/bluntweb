@@ -49,7 +49,7 @@ def main():
             site_aliases = str.join(', ', site_aliases)
             site_help += f' ({site_aliases})'
         sites_help += [site_help]
-    sites_help = ' | '.join(sites_help)
+    sites_help = str.join(' | ', sites_help)
     ap.add_argument('-l', '--lang', default='en')
     ap.add_argument('site', metavar='SITE', choices=all_sites, help=sites_help)
     ap.add_argument('args', metavar='ARG', nargs='+')
@@ -61,7 +61,7 @@ def main():
         pass
     url_template = sites[site]
     variables = dict(
-        args=' '.join(options.args),
+        args=str.join(' ', options.args),
         lang=options.lang
     )
     variables = {
