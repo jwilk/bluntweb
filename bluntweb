@@ -8,8 +8,8 @@ import collections
 import configparser
 import os
 import shutil
-import urllib.parse
 import sys
+import urllib.parse
 
 0_0  # Python >= 3.6 is required
 
